@@ -1,3 +1,8 @@
+---
+layout: default
+title: Documentation References
+nav_order: 5
+---
 # Documentation References
 
 ## Core

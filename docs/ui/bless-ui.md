@@ -1,3 +1,8 @@
+---
+layout: default
+title: Bless UI
+nav_order: 3
+---
 # BLEss UI
 BLEss UI is a set of commonly used Android UI Components.
 

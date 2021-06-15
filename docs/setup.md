@@ -1,3 +1,8 @@
+---
+layout: default
+title: Setup
+nav_order: 4
+---
 # Setup
 
 ## Current Version
