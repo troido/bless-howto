@@ -1,37 +1,50 @@
-## Welcome to GitHub Pages
+# BLESS
+BLESS is a set of Android libraries that makes work with Android BLE framework easier.
 
-You can use the [editor on GitHub](https://github.com/troido/bless-howto/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+## Documentation
+* [Getting Started](./docs/README.md)
+* [Documentation References](./docs/reference.md)
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+## Reporting Issues
+Found a bug on a specific feature? Open an issue on [Github issues](https://github.com/troido/bless/issues).
 
-### Markdown
+# Setup
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
+## Current Version
+```Gradle
+// latest snapshot
+def bless_version = '0.1.0-SNAPSHOT'
 ```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+## Github Credentials
+You need to have the following credentials:
+* Github username
+* Github personal access token with `read:packages` scope
+    * You can generate your Github's personal access token at: Github Profile -> Settings -> Developer settings -> Personal access tokens -> Generate new token
+    * Don't forget to check `read:packages` scope when generating the token
 
-### Jekyll Themes
+## Gradle
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/troido/bless-howto/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+### Github Repository
+Check that you have the BLESS Github repository in the list of your repositories.
+```Gradle
+// Add BLESS Github Repository
+repositories {
+    maven {
+        url "https://maven.pkg.github.com/troido/bless"
+        credentials {
+            username = GITHUB_USERNAME
+            password = GITHUB_READ_PACKAGES_ACCESS_TOKEN
+        }
+    }
+}
+```
+*Note: You can setup your credentials as Gradle environment variables.*
 
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+### Dependencies
+```Gradle
+// BLESS core features
+implementation "com.troido.bless:bless-core:$bless_version"
+// BLESS UI components
+implementation "com.troido.bless:bless-ui:$bless_version"
+```
