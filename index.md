@@ -1,3 +1,7 @@
+---
+layout: default
+nav_order: 1
+---
 # BLESS
 BLESS is a set of Android libraries that makes work with Android BLE framework easier.
 
