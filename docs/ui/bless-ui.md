@@ -5,7 +5,7 @@ BLEss UI is a set of commonly used Android UI Components.
 
 ### Dependencies
 Apply the setup from bless-core, then add this module:
-```Gradle
+```gradle
 // BLEss core features
 implementation "com.troido.bless:bless-ui:$bless_version"
 ```
@@ -50,12 +50,12 @@ normal text - normal classes, fields, methods</br>
 
 ## BlessScanActivity
 `BlessScanActivity` is the simplest way to let the user select a nearby ble device.
-```Kotlin
+```kotlin
 BlessScanActivity.startForResult(activity, REQUEST_CODE_SCANNING)
 ```
 
 Retrieve the result by overriding `onActivityResult` in your Activity or Fragment:
-```Kotlin
+```kotlin
 override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
     if (requestCode == REQUEST_CODE_SCANNING) {
         when (resultCode) {
@@ -133,7 +133,7 @@ By implementing a ListAdapter you can change the way the scanned devices are vis
 
 2) Create a ViewHolder that references the used views.
 
-```Kotlin
+```kotlin
 class CustomViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     val nameView: TextView = itemView.name
 }
@@ -141,7 +141,7 @@ class CustomViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
 3) Create a ListAdapter that puts the ScanResults into the RecyclerView.
 
-```Kotlin
+```kotlin
 class CustomAdapter(private val deviceSelectedCallback: DeviceSelectedCallback) :
     ListAdapter<ScanResult, CustomViewHolder>(CustomItemCallback()) {
 
@@ -175,7 +175,7 @@ class CustomAdapter(private val deviceSelectedCallback: DeviceSelectedCallback) 
 
 4) Create a custom activity that extends `ListScanActivity`.
 
-```Kotlin
+```kotlin
 class CustomScanningActivity : ListScanActivity<ScanResult>() {
     override val adapter = CustomAdapter(this::onDeviceSelected)
 
@@ -222,7 +222,7 @@ Here is an activity that just counts the scanned devices.
     tools:text="0\ndevices" />
 ```
 
-```Kotlin
+```kotlin
 class CounterActivity : ScanActivity() {
     override val scanFilter = ScanFilter.empty()
     override val scanSettings = ScanSettings.default()
@@ -269,7 +269,7 @@ The result looks like that
 Bless-ui module provides the abstract `BleConnectService`. This service starts on devices and connects to the device whose address passed in an intent with `EXTRA_REMOTE_DEVICE_ADDRESS` key. User can stop this service directly with a stop button on a notification. It also has plenty of methods that give an opportunity to implement desired behaviour (you can see them on the UML class diagram above)
 
 Example of starting service static method:
-```Kotlin
+```kotlin
 class CustomBleConnectService : BleConnectService()
 
 ....
@@ -293,7 +293,7 @@ class CustomBleConnectService : BleConnectService()
 Bless-ui module provides the abstract `BleScanService`. This service starts on devices and begins scanning. User can stop this service directly with a stop button on a notification. Service stops scanning whenever it is stopped.
 
 Example of starting service static method:
-```Kotlin
+```kotlin
 class ScanService : BleScanService() {
 
     override val scanSettings: ScanSettings =

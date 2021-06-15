@@ -15,7 +15,7 @@ Found a bug on a specific feature? Open an issue on [Github issues](https://gith
 # Setup
 
 ## Current Version
-```Gradle
+```gradle
 // latest snapshot
 def bless_version = '0.1.0-SNAPSHOT'
 ```
@@ -31,7 +31,7 @@ You need to have the following credentials:
 
 ### Github Repository
 Check that you have the BLESS Github repository in the list of your repositories.
-```Gradle
+```gradle
 // Add BLESS Github Repository
 repositories {
     maven {
@@ -46,7 +46,7 @@ repositories {
 *Note: You can setup your credentials as Gradle environment variables.*
 
 ### Dependencies
-```Gradle
+```gradle
 // BLESS core features
 implementation "com.troido.bless:bless-core:$bless_version"
 // BLESS UI components

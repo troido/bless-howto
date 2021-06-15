@@ -8,13 +8,13 @@ If an Android app wants to emit the advertising events, and take the broadcaster
 
 `BleAdvertiser` is the central API for BLE advertising in Android. Retreive the advertiser object anywhere from your app by doing the following.
 
-```Kotlin
+```kotlin
 val advertiser = Bless.bleAdvertiser
 ```
 
 Start advertising by calling `BleAdvertiser.start` method.
 
-```Kotlin
+```kotlin
 val settings = AdvertiseSettings.Builder().build()
 val data = AdvertiseData.Builder().build()
 val callback = MyAdvertiseCallback()
@@ -25,7 +25,7 @@ Use `AdvertiseSettings` for configuring advertising, and `AdvertiseData` for set
 
 `AdvertiseCallback` is used for receiving advertisement events.
 
-```Kotlin
+```kotlin
 class MyAdvertiseCallback : AdvertiseCallback {
 
     fun onStartSuccess(settingsInEffect: AdvertiseSettings) {
@@ -40,6 +40,6 @@ class MyAdvertiseCallback : AdvertiseCallback {
 
 Stop advertising by calling `BleAdvertiser.stop`.
 
-```Kotlin
+```kotlin
 advertiser.stop()
 ```

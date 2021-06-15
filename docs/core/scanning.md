@@ -7,12 +7,12 @@ If an Android app wants to receive the advertising events, and take the observer
 ## BleScanner
 
 `BleScanner` is the central API for BLE scanning in Android. Retreive the scanner object anywhere from your app by doing the following.
-```Kotlin
+```kotlin
 val scanner = Bless.bleScanner
 ```
 
 Start scanning by calling `startScan` method. Make sure that your app holds a location permission.
-```Kotlin
+```kotlin
 val filter = ScanFilter.empty()
 val settings = ScanSettings.default()
 val callback = MyScanCallback()
@@ -21,7 +21,7 @@ scanner.startScan(filter, settings, callback)
 Use `ScanFilter` for filtering the scan results, and `ScanSettings` for configuring scanning.
 
 `ScanCallback` is used for receiving scan results.
-```Kotlin
+```kotlin
 class MyScanCallback : ScanCallback<ScanResult> {
 
     override fun onScanFailed(errorCode: Int) {
@@ -35,7 +35,7 @@ class MyScanCallback : ScanCallback<ScanResult> {
 ```
 
 Stop scanning by calling `stopScan` on `BleScanner` object.
-```Kotlin
+```kotlin
 scanner.stopScan(callback)
 ```
 
@@ -45,7 +45,7 @@ Deserialisation is a feature that enables converting `ScanResult` to a client de
 
 Implement `Deserializer` interface and pass the deserialiser object in `startScan` method.
 
-```Kotlin
+```kotlin
 val addressDeserializer = object : Deserializer<String> {
 
     override fun deserialize(scanResult: ScanResult): String? {
@@ -73,7 +73,7 @@ BLE device has a temperature sensor and emits temperature values in its advertis
 
 Let's model our data.
 
-```Kotlin
+```kotlin
 data class SensorReading(
     val temperature: Float
 )
@@ -81,7 +81,7 @@ data class SensorReading(
 
 We need to implement a deserilaiser to extract the temperature from a `ScanResult`.
 
-```Kotlin
+```kotlin
 class SensorDeserializer : Deserializer<SensorReading> {
 
     override fun deserialize(scanResult: ScanResult): SensorReading? {
@@ -99,9 +99,9 @@ class SensorDeserializer : Deserializer<SensorReading> {
 
 We can receive our sensor readings and log the temperature.
 
-```Kotlin
+```kotlin
 class SensorCallback : ScanCallback<SensorReading> {
-    
+
     private val TAG = "SensorCallback"
 
     override fun onScanFailed(errorCode: Int) {
@@ -116,7 +116,7 @@ class SensorCallback : ScanCallback<SensorReading> {
 
 Finally, we start scanning with our deserialiser and callback.
 
-```Kotlin
+```kotlin
 val filter = ScanFilter.Builder().addDeviceAddress("00:11:22:33:AA:BB").build()
 val settings = ScanSettings.default()
 val deserialiser = SensorDeserializer()

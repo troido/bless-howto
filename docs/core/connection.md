@@ -10,7 +10,7 @@ Android app can take the central role by using `BleConnection` API.
 
 Initialize BLESS library in your Android app to use its connection API.
 
-```Kotlin
+```kotlin
 Bless.initialize(applicationContext)
 ```
 
@@ -18,7 +18,7 @@ Bless.initialize(applicationContext)
 
 Instantiate `BleConnection` by calling appropriate method in `Bless` object.
 
-```Kotlin
+```kotlin
 val remoteDeviceAddress = "00:11:22:33:AA:BB"
 val connection = Bless.createBleConnection(remoteDeviceAddress)
 ```
@@ -27,10 +27,10 @@ val connection = Bless.createBleConnection(remoteDeviceAddress)
 
 Create a `BleConnection` with a reconnection logic.
 
-```Kotlin
+```kotlin
 val connection = Bless.createBleConnection(
-    remoteDeviceAddress, 
-    arrayOf(1, 3, 5), 
+    remoteDeviceAddress,
+    arrayOf(1, 3, 5),
     TimeUnit.SECONDS
 )
 ```
@@ -43,6 +43,6 @@ When a BLE connection drops, the reconnection logic will try to reconnect 3 time
 
 You can instantiate `L2BleConnection` the same way as `BleConnection`, by calling appropriate method in `Bless` object.
 
-```Kotlin
+```kotlin
 val l2BleConnection = Bless.createL2BleConnection(remoteDeviceAddress)
 ```
