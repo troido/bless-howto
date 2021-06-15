@@ -18,7 +18,7 @@ Custom library implementing features for aconno IoT devices.
 
 ## Quickstart
 Using BLESS in your code is easy. You just need to initialize the library on your app start.
-```Kotlin
+```kotlin
 class MyApplication : Application() {
 
     override fun onCreate() {
