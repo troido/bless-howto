@@ -1,3 +1,8 @@
+---
+layout: default
+title: Timestamp Synchronization
+nav_exclude: true
+---
 # BLE Timestamp Synchronization
 Synchronize timestamp on your remote device.
 

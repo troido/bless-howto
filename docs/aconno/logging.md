@@ -1,3 +1,8 @@
+---
+layout: default
+title: Logging
+nav_exclude: true
+---
 # BLE Logging
 Get logs from the remote device by using BLE Logging.
 
