@@ -3,52 +3,35 @@ layout: default
 nav_order: 1
 ---
 # BLESS
-BLESS is a set of Android libraries that makes work with Android BLE framework easier.
+BLESS is a set of Android libraries that makes your work with ANdroid BLE framework easy.
 
-## Documentation
-* [Getting Started](./docs/README.md)
-* [Documentation References](./docs/reference.md)
+BLESS implements common use-cases including: device discovery, connectivity, data transfer and remote device control.
 
-## Reporting Issues
-Found a bug on a specific feature? Open an issue on [Github issues](https://github.com/troido/bless/issues).
+BLESS contains both UI components and low-level APIs.
 
-# Setup
+## Libraries
 
-## Current Version
-```gradle
-// latest snapshot
-def bless_version = '0.1.0-SNAPSHOT'
-```
+#### bless-core
+Core features including BLE device discovery, connection, data transfer, and many more.
 
-## Github Credentials
-You need to have the following credentials:
-* Github username
-* Github personal access token with `read:packages` scope
-    * You can generate your Github's personal access token at: Github Profile -> Settings -> Developer settings -> Personal access tokens -> Generate new token
-    * Don't forget to check `read:packages` scope when generating the token
+#### bless-ui
+Out-of-the-box Android UI components including views, activities, and services.
 
-## Gradle
+#### bless-aconno
+Custom library implementing features for aconno IoT devices.
 
-### Github Repository
-Check that you have the BLESS Github repository in the list of your repositories.
-```gradle
-// Add BLESS Github Repository
-repositories {
-    maven {
-        url "https://maven.pkg.github.com/troido/bless"
-        credentials {
-            username = GITHUB_USERNAME
-            password = GITHUB_READ_PACKAGES_ACCESS_TOKEN
-        }
+## Quickstart
+First you need to [import](./docs/setup.md) the modules.
+
+Using BLESS in your code is easy. You just need to initialize the library on your app start.
+```kotlin
+class MyApplication : Application() {
+
+    override fun onCreate() {
+        Bless.initialize(this)
     }
 }
 ```
-*Note: You can setup your credentials as Gradle environment variables.*
+You can use `Bless` object to get various components of the library.
 
-### Dependencies
-```gradle
-// BLESS core features
-implementation "com.troido.bless:bless-core:$bless_version"
-// BLESS UI components
-implementation "com.troido.bless:bless-ui:$bless_version"
-```
+For further documentation take a look at [Documentation References](./docs/reference.md).
