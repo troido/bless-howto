@@ -1,3 +1,9 @@
+---
+layout: default
+title: Connection
+parent: Core
+nav_order: 3
+---
 # Connection
 
 Bluetooth Low Energy (BLE) defines a couple of roles that BLE devices can operate in. Two of these roles are a central role and a peripheral role. A device that is operating in the central role initiates establishment of a physical connection. On the contrary, a device that is operating in the peripheral role accepts a connection request from another device.

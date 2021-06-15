@@ -1,3 +1,9 @@
+---
+layout: default
+title: Advertising
+parent: Core
+nav_order: 1
+---
 # Advertising
 
 Bluetooth Low Energy (BLE) defines a couple of roles that BLE devices can operate in. Two of these roles are a broadcaster role and an observer role. A device that is operating in the broadcaster role transmits advertising events periodically. On the contrary, a device that is operating in the observer role receives the advertising events.
