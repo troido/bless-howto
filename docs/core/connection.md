@@ -43,7 +43,7 @@ val connection = Bless.createBleConnection(
 
 When a BLE connection drops, the reconnection logic will try to reconnect 3 times with 1, 3, and 5 seconds delay between attempts.
 
-## L2BLE Connection
+<!-- ## L2BLE Connection
 
 `L2BleConnection` represents 2-way BLE connection. It uses 2 GATT characteristics, one for sending, and one for receiving data. It is optimised for high data throughput by setting a high connection priority and requesting higher MTU value.
 
@@ -51,4 +51,4 @@ You can instantiate `L2BleConnection` the same way as `BleConnection`, by callin
 
 ```kotlin
 val l2BleConnection = Bless.createL2BleConnection(remoteDeviceAddress)
-```
+``` -->
