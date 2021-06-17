@@ -9,7 +9,7 @@ BLEss UI is a set of commonly used Android UI Components.
 # Setup
 
 ### Dependencies
-Apply the setup from bless-core, then add this module:
+Apply the [setup](../setup.md) from bless-core, then add this module:
 ```gradle
 // BLEss core features
 implementation "com.troido.bless:bless-ui:$bless_version"
