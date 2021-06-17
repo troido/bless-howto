@@ -5,3 +5,4 @@
 #   enabled: true
 #   collections: true
 remote_theme: pmarsceill/just-the-docs
+logo: "/images/bless.png"
