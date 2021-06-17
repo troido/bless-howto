@@ -28,8 +28,21 @@ Instantiate `BleConnection` by calling appropriate method in `Bless` object.
 val remoteDeviceAddress = "00:11:22:33:AA:BB"
 val connection = Bless.createBleConnection(remoteDeviceAddress)
 ```
+### 4. Register listener
+Register a listener that inherits `BleConnection.Listener`
 
-## Secure connection
+```kotlin
+ connection.registerListener(MyListener())
+```
+
+### 3. Connect
+Now you can connect and listen for events
+
+```kotlin
+connection.connect()
+
+```
+## Reconnectable connection
 
 Create a `BleConnection` with a reconnection logic.
 
