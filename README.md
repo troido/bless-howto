@@ -10,3 +10,6 @@
 
 ## Reporting Issues
 Found a bug on a specific feature? Open an issue on [Github issues](https://github.com/troido/bless-howto/issues).
+
+## Contacts
+For licensing and other questions [contact](./docs/contacts.ms) us.
