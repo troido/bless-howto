@@ -7,3 +7,6 @@
     <p align="center"><strong><a href="https://troido.github.io/bless-howto/">See documentation!</a></strong></p>
     <br><br><br>
 </p>
+
+## Reporting Issues
+Found a bug on a specific feature? Open an issue on [Github issues](https://github.com/troido/bless-howto/issues).
