@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="screen_edge_margin">16dp</dimen>
+    <dimen name="appbar_elevation">4dp</dimen>
+    <dimen name="content_vertical_margin">8dp</dimen>
+    <dimen name="list_item_height_single_line">48dp</dimen>
+    <dimen name="recycler_view_in_filter_dialog_min_height">64dp</dimen>
+</resources>
