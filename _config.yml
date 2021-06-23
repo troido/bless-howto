@@ -6,3 +6,7 @@
 #   collections: true
 remote_theme: pmarsceill/just-the-docs
 logo: "/images/bless.png"
+# Aux links for the upper right navigation
+aux_links:
+  "GitHub repository with a sample app":
+    - "//github.com/troido/bless-howto"
