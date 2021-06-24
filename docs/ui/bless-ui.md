@@ -55,26 +55,24 @@ normal text - normal classes, fields, methods</br>
 
 ## BlessScanActivity
 `BlessScanActivity` is the simplest way to let the user select a nearby ble device.
+it uses `ActivityResultContracts`.
 ```kotlin
-BlessScanActivity.startForResult(activity, REQUEST_CODE_SCANNING)
+requestBluetoothScanning.launch(BlessScanActivity.getIntent(this))
 ```
 
-Retrieve the result by overriding `onActivityResult` in your Activity or Fragment:
+Retrieve the result inside your contract in your Activity or Fragment:
 ```kotlin
-override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-    if (requestCode == REQUEST_CODE_SCANNING) {
-        when (resultCode) {
+private val requestBluetoothScanning =
+    registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+        when (it.resultCode) {
+            RESULT_ABORT -> showToast("User Aborted Scanning")
             RESULT_SUCCESS -> {
-                val macAddress = ListScanActivity.getAddressFromResult(data)
+                val macAddress = BlessScanActivity.getAddressFromResult(it.data)
                 showToast("Retrieved Mac: $macAddress")
             }
-            RESULT_ABORT -> showToast("User Aborted Scanning")
             RESULT_SCANNING_ERROR -> showToast("Error In Scanning")
         }
-    } else {
-        super.onActivityResult(requestCode, resultCode, data)
     }
-}
 ```
 
 The result is defined in the base class `ListScanActivity`:
