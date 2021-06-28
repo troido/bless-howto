@@ -37,4 +37,13 @@ implementation "com.troido.bless:bless-ui:$bless_version"
 implementation "com.troido.bless:bless-aconno:$bless_version"
 ```
 
+### License
+For release version a license is needed. To apply the license add the following tag to your app manifest.
+```
+  <meta-data
+            android:name="bless_license"
+            android:value="YOUR_LICENSE_HERE" />
+```
+
+
 For further documentation take a look at [Documentation References](./reference.md).
