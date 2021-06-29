@@ -21,20 +21,22 @@ The most abstract activity is `ScanActivity`. It has basic methods like `startSc
 
 Then comes `ListScanActivity`. This activity requires a `ListAdapter`, it has embedded listView which displays scanned devices through this adapter. Selected ble device will be returned in `onActivityResult()` method of a caller activity or in the `onDeviceSelected()` method of the instance if it overrides it.
 
-Finally, `BlessScanActivity` is a ready to go activity that provides its own `ListAdapter` and returns a selected ble device to the `onActivityResult()` method of a caller activity
+Finally, `BlessScanActivity` is a ready to go activity that provides its own `ListAdapter` and returns a selected ble device to the `onActivityResult()` method of a caller activity.
 
 Below you can see UML class diagram that represents the dependencies between these three classes.
 
 ![Bless ui activities UML class diagram](../screens/bless-ui-activities-uml-class-diagramm.svg)
+
 Additional info for the picture:</br>
 *italic text* - abstract classes, fields, methods</br>
 normal text - normal classes, fields, methods</br>
 <ins>underline text</ins> - static fields, methods </br>
 \# - protected fields and methods
 
-Other part of the bless-ui is the abstract `BleConnectService`, It has basic methods to `connect`, `disconnetc`, `requestMtu`, etc. and abstract callback methods that will be invoked in an instance of this service. Uml class diagram is presented below.
+Other part of the bless-ui is the abstract `BleConnectService`, It has basic methods to `connect`, `disconnect`, `requestMtu`, etc. and abstract callback methods that will be invoked in an instance of this service. Uml class diagram is presented below.
 
 ![Bless ui service UML class diagram](../screens/bless-ui-connect-service-uml-class-diagramm.svg)
+
 Additional info for the picture:</br>
 *italic text* - abstract classes, fields, methods</br>
 normal text - normal classes, fields, methods</br>
@@ -45,6 +47,7 @@ Another abstract service is `BleScanService`. We can start and stop scan by runn
 Uml class diagram is presented below.
 
 ![Bless ui service UML class diagram](../screens/bless-ui-scan-service-uml-class-diagramm.svg)
+
 Additional info for the picture:</br>
 *italic text* - abstract classes, fields, methods</br>
 normal text - normal classes, fields, methods</br>
@@ -201,15 +204,14 @@ But you can also put your own logic to filter the list by your own needs or even
 
 ## ScanActivity
 
-If you need even more flexibility you can extend `ScanActivity`.
-`startScan()` will start scanning if all conditions are met.
+If you need even more flexibility you can extend `ScanActivity.startScan()` will start scanning if all conditions are met.
 It will make sure that the bluetooth adapter is enabled and the permissions are granted.
 If the user does finally deny that `handleError(true)` will be called.
 If there is a technical issue `handleError(false)` will be called.
 The scanning state can be observed with `onIsScanningChanged(boolean)`.
 The list of scanned devices is provided in `onNewDevicesList(List<ScanResult>)`.
 The cache of scanned devices can be cleared with `clearScanResults()`.
-`stopScan()` will stop the scanning process.
+Method `stopScan()` will stop the scanning process.
 
 Here is an activity that just counts the scanned devices.
 
