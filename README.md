@@ -3,9 +3,7 @@ BLEss
 
 [View BLEss's documentation](https://troido.github.io/bless-howto/) | [Report an issue with BLEss](https://github.com/troido/bless-howto/issues)
 
-
-BLEss is a set of Android libraries that makes work with Android BLE framework easier.
-
+BLEss is an easy to use Android BLE library. It is blazing fast, effortless and efficient that deals with painful Android BLE implementation for you!
 
 <p align="center">
     <h1 align="center">
@@ -31,7 +29,7 @@ override fun onCreate(savedInstanceState: Bundle?) {
 	requestBluetoothScanning.launch(BlessScanActivity.getIntent(this))
 }
 ```
-You see! That's it. Seven lines of code just saved you hours of research and implementation. Please find more examples like this in our library documentation.
+You see! That's it. Seven lines of code just saved you hours of research and implementation. Please find more examples like this in our library documentation or in our sample project application.
 ## Documentation
 Find our full documentation with how-to guides for all of the components of BLEss [here](https://troido.github.io/bless-howto/).
 ## Reporting Issues
@@ -40,3 +38,5 @@ Found a bug on a specific feature? Please share by opening an issue on  [Github]
 BLEss is a licensed software. You can use it for free without any restrictions in debug mode. For production apps you need to contact us and get a License Key. We also provide special offers for Open-Source software.
 ## Contact Us
 For licensing and other questions [contact](https://troido.github.io/bless-howto/docs/contacts.html) us.
+## About Us
+Troido is a company that focuses on Android and IoT for more than 10 years. BLEss is developed by Bluetooth and Android experts in Troido.
