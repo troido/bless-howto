@@ -27,20 +27,20 @@ Below you can see UML class diagram that represents the dependencies between the
 
 ![Bless ui activities UML class diagram](../screens/bless-ui-activities-uml-class-diagramm.svg)
 
-Additional info for the picture:</br>
-*italic text* - abstract classes, fields, methods</br>
-normal text - normal classes, fields, methods</br>
-<ins>underline text</ins> - static fields, methods </br>
+Additional info for the picture:\
+*italic text* - abstract classes, fields, methods\
+normal text - normal classes, fields, methods\
+<ins>underline text</ins> - static fields, methods\
 \# - protected fields and methods
 
 Other part of the bless-ui is the abstract `BleConnectService`, It has basic methods to `connect`, `disconnect`, `requestMtu`, etc. and abstract callback methods that will be invoked in an instance of this service. Uml class diagram is presented below.
 
 ![Bless ui service UML class diagram](../screens/bless-ui-connect-service-uml-class-diagramm.svg)
 
-Additional info for the picture:</br>
-*italic text* - abstract classes, fields, methods</br>
-normal text - normal classes, fields, methods</br>
-<ins>underline text</ins> - static fields, methods </br>
+Additional info for the picture:\
+*italic text* - abstract classes, fields, methods\
+normal text - normal classes, fields, methods\
+<ins>underline text</ins> - static fields, methods\
 \# - protected fields and methods
 
 Another abstract service is `BleScanService`. We can start and stop scan by running/stopping the service that derives from it.
