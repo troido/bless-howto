@@ -315,9 +315,11 @@ class ScanService : BleScanService() {
         Timber.d("Scan result, result: $result")
     }
 }
+```
+ScanServiceActivity.kt
+```kotlin
+....
 
-ScanServieActivity.kt
-...
 binding.startServiceButton.setOnClickListener {
     Timber.d("Start service button clicked")
     if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
@@ -326,5 +328,6 @@ binding.startServiceButton.setOnClickListener {
         startService(Intent(this, ScanService::class.java))
     }
 }
-...
+
+....
 ```
