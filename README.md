@@ -3,7 +3,7 @@ BLEss
 
 [View BLEss's documentation](https://troido.github.io/bless-howto/) | [Report an issue with BLEss](https://github.com/troido/bless-howto/issues)
 
-BLEss is an easy to use Android BLE library. It is blazing fast, effortless and efficient that deals with painful Android BLE implementation for you!
+BLEss is an easy to use Android BLE library. It is blazing fast, effortless, efficient and will deal with painful Android BLE implementation for you!
 
 <p align="center">
     <h1 align="center">
