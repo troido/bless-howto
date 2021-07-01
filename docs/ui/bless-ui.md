@@ -80,7 +80,7 @@ private val requestBluetoothScanning =
 
 The result is defined in the base class `ListScanActivity`:
 - `RESULT_SCANNING_ERROR` is called on scan errors. That can happen when the limit of start-scan requests per time was reached (usually 5 times per 30 seconds since Android 7).
-- When Bluetooth is disabled a dialog is shown. `RESULT_ABORT` is returned when the user denys to enable bluetooth.
+- When Bluetooth is disabled a dialog is shown. `RESULT_ABORT` is returned when the user denies enabling bluetooth.
 - `RESULT_ABORT` is returned when the back- or upbutton was pressed or location permission was permanently denied, too.
 - `RESULT_SUCCESS` is returned when the the user chooses a device. The data has the device address.
 
@@ -89,7 +89,7 @@ You can use your theme by adding the parameter to `startForResult`.
 The theme should have an action bar.
 You can customize scanning by adding `ScanSettings` or a `ScanFilter`
 
-The result looks like that
+The result looks like the image below
 
 ![Bless Scan Activity](../screens/bless-scan.png)
 
@@ -194,13 +194,13 @@ class CustomScanningActivity : ListScanActivity<ScanResult>() {
 }
 ```
 
-The result looks like that
+The result looks like the image below
 
 ![List Scan Activity](../screens/list-scan.png)
 
 With `getListForAdapter(deviceList: List<T>)` you can change the list before it gets passed to the adapter.
 If the whole List should just be forwarded you can return `deviceList`.
-But you can also put your own logic to filter the list by your own needs or even merge it with your own data by mapping it. The generic type will help you to pass your own objects to the adapter.
+But you can also put your own logic to filter the list by your own needs or even merge it with your own data by mapping it. The generic type will help you pass your own objects to the adapter.
 
 ## ScanActivity
 
@@ -265,7 +265,7 @@ class CounterActivity : ScanActivity() {
 }
 ```
 
-The result looks like that
+The result looks like the image below
 
 ![Counter Activity](../screens/counter-scan.png)
 
@@ -315,9 +315,11 @@ class ScanService : BleScanService() {
         Timber.d("Scan result, result: $result")
     }
 }
+```
+ScanServiceActivity.kt
+```kotlin
+....
 
-ScanServieActivity.kt
-...
 binding.startServiceButton.setOnClickListener {
     Timber.d("Start service button clicked")
     if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
@@ -326,5 +328,6 @@ binding.startServiceButton.setOnClickListener {
         startService(Intent(this, ScanService::class.java))
     }
 }
-...
+
+....
 ```

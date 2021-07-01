@@ -23,7 +23,7 @@
                 android:layout_height="0dp"
                 android:layout_marginStart="@dimen/screen_edge_margin"
                 android:gravity="center_vertical"
-                android:text="@string/zero_devices_deserialised"
+                android:text="@string/zero_devices_deserialized"
                 android:textColor="@color/text_on_primary"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/button_barrier"
