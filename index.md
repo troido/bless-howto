@@ -17,8 +17,8 @@ Core features including BLE device discovery, connection, data transfer, and man
 #### bless-ui
 Out-of-the-box Android UI components including views, activities, and services.
 
-#### bless-aconno
-Custom library implementing features for aconno IoT devices.
+#### bless-comm
+Library implementing features for IoT devices such as data transfer, time sync, settings, security, etc.
 
 ## Quickstart
 First you need to [import](./docs/setup.md) the modules.
