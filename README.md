@@ -3,7 +3,7 @@ BLEss
 
 [View BLEss's documentation](https://troido.github.io/bless-howto/) | [Report an issue with BLEss](https://github.com/troido/bless-howto/issues)
 
-BLEss is an easy to use Android BLE library. It is blazing fast, effortless and efficient that deals with painful Android BLE implementation for you!
+BLEss is an easy to use Android BLE library. It is blazing fast, effortless, efficient and will deal with painful Android BLE implementation for you!
 
 <p align="center">
     <h1 align="center">
@@ -13,7 +13,7 @@ BLEss is an easy to use Android BLE library. It is blazing fast, effortless and 
 # May your BLE implementation project be BLEssed and successful!
 Are you overwhelmed with Android's Bluetooth Low Energy implementation and complexity? Then our BLEss library is the perfect solution for you. It is easy to use and saves you lots of time, energy and/or money. Our libary enables you to implement Bluetooth Low Energy in your application with just a couple of lines of code. That's it! You don't have to worry about low-level BLE implementations or dive deep into BLE's complexity. By using our BLEss library you can stay focused on what you are best at - your project's business goals  and logic.
 
-Additionally, BLEss provides you with UI components to make operations even easier with ready to go screens. Please find following for example a complete solution for scanning and selecting a BLE device to interact with:
+Additionally, BLEss provides you with UI components to make operations even easier with ready to go screens. Please find, following the example, a complete solution for scanning and selecting a BLE device to interact with:
 ```kotlin
 private val requestBluetoothScanning = 
     registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
