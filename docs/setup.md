@@ -33,7 +33,7 @@ In your app module, declare corresponding dependencies
 implementation "com.troido.bless:bless-core:$bless_version"
 // BLESS UI components
 implementation "com.troido.bless:bless-ui:$bless_version"
-// BLESS aconno components
+// BLESS comm components
 implementation "com.troido.bless:bless-comm:$bless_version"
 ```
 
