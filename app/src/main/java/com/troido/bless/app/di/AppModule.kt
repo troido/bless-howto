@@ -3,7 +3,7 @@ package com.troido.bless.app.di
 import android.bluetooth.BluetoothAdapter
 import android.view.LayoutInflater
 import com.troido.bless.Bless
-import com.troido.bless.aconno.scan.deserialization.*
+import com.troido.bless.comm.scan.deserialization.*
 import com.troido.bless.app.bonding.BondingViewModel
 import com.troido.bless.app.common.ViewMvpFactory
 import com.troido.bless.app.deserialization.DeserializationViewModel
@@ -21,11 +21,11 @@ val appModule = module {
 
     viewModel { DeserializationViewModel(get(), get()) }
 
-    single { AconnoDeserializer(get(named("formats"))) }
+    single { BlessCommDeserializer(get(named("formats"))) }
 
     single(named("formats")) {
         listOf(
-            AconnoFormat(
+            CommFormat(
                 id = "test-format",
                 name = "test-format",
                 requiredBytes = listOf(

@@ -4,8 +4,8 @@ import android.Manifest
 import androidx.annotation.RequiresPermission
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.troido.bless.aconno.scan.deserialization.AconnoData
-import com.troido.bless.aconno.scan.deserialization.AconnoDeserializer
+import com.troido.bless.comm.scan.deserialization.BlessCommData
+import com.troido.bless.comm.scan.deserialization.BlessCommDeserializer
 import com.troido.bless.app.model.Device
 import com.troido.bless.scan.BleScanner
 import com.troido.bless.scan.ScanCallback
@@ -15,8 +15,8 @@ import timber.log.Timber
 
 class DeserializationViewModel(
     private val bleScanner: BleScanner,
-    private val aconnoDeserializer: AconnoDeserializer
-) : ViewModel(), ScanCallback<AconnoData> {
+    private val commDeserializer: BlessCommDeserializer
+) : ViewModel(), ScanCallback<BlessCommData> {
 
     val isScanningLiveData = MutableLiveData(false)
 
@@ -28,7 +28,7 @@ class DeserializationViewModel(
 
     @RequiresPermission(anyOf = [Manifest.permission.ACCESS_FINE_LOCATION])
     fun startScan() {
-        bleScanner.startScan(ScanFilter.empty(), ScanSettings.default(), aconnoDeserializer, this)
+        bleScanner.startScan(ScanFilter.empty(), ScanSettings.default(), commDeserializer, this)
         isScanningLiveData.postValue(true)
     }
 
@@ -44,7 +44,7 @@ class DeserializationViewModel(
         }
     }
 
-    override fun onScanResult(result: AconnoData) {
+    override fun onScanResult(result: BlessCommData) {
         val device = Device(
             name = result.scanResult.device.name ?: "Unknown",
             address = result.scanResult.device.address
