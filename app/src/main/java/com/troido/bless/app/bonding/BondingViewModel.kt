@@ -50,9 +50,7 @@ class BondingViewModel(private val bluetoothInfo: BluetoothInfo) : ViewModel() {
     fun startScanning(): Boolean {
         return if (bluetoothInfo.isBluetoothEnabled) {
             Bless.bleScanner.startScan(
-                ScanFilter.empty(),
-                ScanSettings.default(),
-                scanResultCallback
+                ScanFilter.empty(), ScanSettings.default(), scanResultCallback
             )
             true
         } else {

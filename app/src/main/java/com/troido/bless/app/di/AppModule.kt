@@ -20,7 +20,7 @@ val appModule = module {
 
     single { BluetoothAdapter.getDefaultAdapter() }
 
-    viewModel { DeserializationViewModel(get(), get()) }
+    viewModel { DeserializationViewModel(get(), get(),BluetoothInfoWithBluetoothAdapter()) }
 
     single { BlessCommDeserializer(get(named("formats"))) }
 

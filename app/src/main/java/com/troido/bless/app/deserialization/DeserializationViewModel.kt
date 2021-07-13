@@ -4,9 +4,10 @@ import android.Manifest
 import androidx.annotation.RequiresPermission
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.troido.bless.app.model.BluetoothInfo
+import com.troido.bless.app.model.Device
 import com.troido.bless.comm.scan.deserialization.BlessCommData
 import com.troido.bless.comm.scan.deserialization.BlessCommDeserializer
-import com.troido.bless.app.model.Device
 import com.troido.bless.scan.BleScanner
 import com.troido.bless.scan.ScanCallback
 import com.troido.bless.scan.ScanFilter
@@ -15,7 +16,8 @@ import timber.log.Timber
 
 class DeserializationViewModel(
     private val bleScanner: BleScanner,
-    private val commDeserializer: BlessCommDeserializer
+    private val blessCommDeserializer: BlessCommDeserializer,
+    private val bluetoothInfo: BluetoothInfo
 ) : ViewModel(), ScanCallback<BlessCommData> {
 
     val isScanningLiveData = MutableLiveData(false)
@@ -26,10 +28,18 @@ class DeserializationViewModel(
     private var device: Device? = null
     val deserializedDataLiveData = MutableLiveData<DeserializationData?>()
 
+    /**
+     * Starts scan and returns true if bluetooth is enabled. Otherwise returns false
+     */
     @RequiresPermission(anyOf = [Manifest.permission.ACCESS_FINE_LOCATION])
-    fun startScan() {
-        bleScanner.startScan(ScanFilter.empty(), ScanSettings.default(), commDeserializer, this)
-        isScanningLiveData.postValue(true)
+    fun startScan(): Boolean {
+        return if (bluetoothInfo.isBluetoothEnabled) {
+            bleScanner.startScan(
+                ScanFilter.empty(), ScanSettings.default(), blessCommDeserializer, this
+            )
+            isScanningLiveData.postValue(true)
+            true
+        } else false
     }
 
     fun stopScan() {
