@@ -5,12 +5,13 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.troido.bless.Bless
 import com.troido.bless.BluetoothDevice
 import com.troido.bless.app.R
+import com.troido.bless.app.common.extensions.showLongToast
+import com.troido.bless.app.common.extensions.showToast
 import com.troido.bless.app.databinding.ActivityBondingBinding
 import com.troido.bless.app.main.PermissionsActivity
 import com.troido.bless.bonding.BondingResultCallback
@@ -26,27 +27,15 @@ class BondingActivity : PermissionsActivity(
     private var currentBondedDevice: BluetoothDevice? = null
     private val bondingResultCallback = object : BondingResultCallback {
         override fun onBonding(bluetoothDevice: BluetoothDevice) {
-            Toast.makeText(
-                this@BondingActivity,
-                "Bonding with device ${bluetoothDevice.address}",
-                Toast.LENGTH_SHORT
-            ).show()
+            showToast("Bonding with device ${bluetoothDevice.address}")
         }
 
         override fun onBonded(bluetoothDevice: BluetoothDevice) {
-            Toast.makeText(
-                this@BondingActivity,
-                "Bonded with ${bluetoothDevice.address}",
-                Toast.LENGTH_SHORT
-            ).show()
+            showToast("Bonded with ${bluetoothDevice.address}")
         }
 
         override fun onBondingFailed(bluetoothDevice: BluetoothDevice) {
-            Toast.makeText(
-                this@BondingActivity,
-                "Bonding to ${bluetoothDevice.address} failed",
-                Toast.LENGTH_SHORT
-            ).show()
+            showToast("Bonding to ${bluetoothDevice.address} failed")
         }
     }
 
@@ -60,7 +49,7 @@ class BondingActivity : PermissionsActivity(
         setContentView(binding.root)
 
         viewModel.errorLiveData.observe(this) {
-            Toast.makeText(this, it.message, Toast.LENGTH_LONG).show()
+            it.message?.let(::showLongToast)
         }
 
         setUpRecycler()
@@ -99,15 +88,10 @@ class BondingActivity : PermissionsActivity(
                     "Bond".toByteArray()
                 )
 
-                Toast.makeText(
-                    this@BondingActivity,
-                    "Sending \"Bond\" to device as Byte Array",
-                    Toast.LENGTH_LONG
-                ).show()
+                showLongToast("Sending \"Bond\" to device as Byte Array")
 
                 Bless.deviceBonder.removeBondedDevice(bluetoothDevice.address)
-                Toast.makeText(this@BondingActivity, "Removed Bond to Device", Toast.LENGTH_SHORT)
-                    .show()
+                showToast("Removed Bond to Device")
             }
         } else {
             viewModel.bondDevice(bluetoothDevice, bondingResultCallback)

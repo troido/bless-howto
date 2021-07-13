@@ -2,10 +2,11 @@ package com.troido.bless.app.scan
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import com.troido.bless.app.R
+import com.troido.bless.app.common.extensions.showLongToast
+import com.troido.bless.app.common.extensions.showToast
 import com.troido.bless.app.databinding.ActivityDeviceScanStarterBinding
 import com.troido.bless.app.model.ScanConfig
 import com.troido.bless.app.scan.button_control.with_ui_module.ButtonControlScanActivity
@@ -42,7 +43,7 @@ class ScanStarterActivity : AppCompatActivity(R.layout.activity_device_scan_star
                         data.getStringExtra(ButtonControlScanActivity.RESULT_EXTRA_STRING_NAME)
                     val address =
                         data.getStringExtra(ButtonControlScanActivity.RESULT_EXTRA_STRING_ADDRESS)
-                    Toast.makeText(this, "Name: $name, address: $address", Toast.LENGTH_LONG).show()
+                    showLongToast("Name: $name, address: $address")
                 }
             }
         }
@@ -95,9 +96,5 @@ class ScanStarterActivity : AppCompatActivity(R.layout.activity_device_scan_star
                 this, R.style.AppThemeWithActionBar, scanFilter, scanSettings
             )
         )
-    }
-
-    private fun showToast(text: String) {
-        Toast.makeText(this, text, Toast.LENGTH_SHORT).show()
     }
 }

@@ -3,7 +3,7 @@ package com.troido.bless.app.main.views
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
+import com.troido.bless.app.common.extensions.showLongToast
 import com.troido.bless.app.common.views.BaseObservableViewMvp
 import com.troido.bless.app.databinding.LayoutMainBinding
 
@@ -35,6 +35,6 @@ class MainViewMvpImpl(
     }
 
     override fun showToastMessage(message: String) {
-        Toast.makeText(rootView.context, message, Toast.LENGTH_LONG).show()
+        rootView.context.showLongToast(message)
     }
 }

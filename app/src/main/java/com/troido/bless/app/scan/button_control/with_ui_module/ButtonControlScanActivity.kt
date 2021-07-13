@@ -3,8 +3,8 @@ package com.troido.bless.app.scan.button_control.with_ui_module
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
-import android.widget.Toast
 import com.troido.bless.app.common.ViewMvpFactory
+import com.troido.bless.app.common.extensions.showLongToast
 import com.troido.bless.app.model.Device
 import com.troido.bless.app.scan.button_control.views.DeviceScanViewMvp
 import com.troido.bless.scan.ScanFilter
@@ -43,7 +43,7 @@ class ButtonControlScanActivity : ScanActivity(), DeviceScanViewMvp.Listener {
     }
 
     override fun handleError(isUserDecision: Boolean) {
-        Toast.makeText(this, "Error", Toast.LENGTH_LONG).show()
+        showLongToast("Error")
     }
 
     override fun onStartScanClicked() {
