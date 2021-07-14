@@ -42,4 +42,3 @@ BLEss is a licensed software. You can use it for free without any restrictions i
 For licensing and other questions [contact](https://troido.github.io/bless-howto/docs/contacts.html) us.
 ## About Us
 Troido is a company that focuses on Android and IoT for more than 10 years. BLEss is developed by Bluetooth and Android experts in Troido.
-
