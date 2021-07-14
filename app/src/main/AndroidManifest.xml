@@ -3,6 +3,10 @@
 
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
 
+    <meta-data
+        android:name="bless_license"
+        android:value="" />
+
     <application
         android:name=".SampleApplication"
         android:allowBackup="false"

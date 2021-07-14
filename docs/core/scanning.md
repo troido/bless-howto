@@ -45,11 +45,11 @@ Stop scanning by calling `stopScan` on `BleScanner` object.
 scanner.stopScan(callback)
 ```
 
-## Deserialisation
+## Deserialization
 
-Deserialisation is a feature that enables converting `ScanResult` to a client defined data type.
+Deserialization is a feature that enables converting `ScanResult` to a client defined data type.
 
-Implement `Deserializer` interface and pass the deserialiser object in `startScan` method.
+Implement `Deserializer` interface and pass the deserializer object in `startScan` method.
 
 ```kotlin
 val addressDeserializer = object : Deserializer<String> {
@@ -120,12 +120,12 @@ class SensorCallback : ScanCallback<SensorReading> {
 }
 ```
 
-Finally, we start scanning with our deserialiser and callback.
+Finally, we start scanning with our deserializer and callback.
 
 ```kotlin
 val filter = ScanFilter.Builder().addDeviceAddress("00:11:22:33:AA:BB").build()
 val settings = ScanSettings.default()
-val deserialiser = SensorDeserializer()
+val deserializer = SensorDeserializer()
 val callback = SensorCallback()
-Bless.bleScanner.startScan(filter, settings, deserialiser, callback)
+Bless.bleScanner.startScan(filter, settings, deserializer, callback)
 ```

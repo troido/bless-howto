@@ -18,6 +18,6 @@ nav_order: 5
 * Timestamp (Will be available in future)
 
 <!---
-* [Logging](./aconno/logging.md)
-* [Timestamp Synchronization](./aconno/timestamp-sync.md)
+* [Logging](./comm/logging.md)
+* [Timestamp Synchronization](./comm/timestamp-sync.md)
 --->

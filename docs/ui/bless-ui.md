@@ -21,30 +21,33 @@ The most abstract activity is `ScanActivity`. It has basic methods like `startSc
 
 Then comes `ListScanActivity`. This activity requires a `ListAdapter`, it has embedded listView which displays scanned devices through this adapter. Selected ble device will be returned in `onActivityResult()` method of a caller activity or in the `onDeviceSelected()` method of the instance if it overrides it.
 
-Finally, `BlessScanActivity` is a ready to go activity that provides its own `ListAdapter` and returns a selected ble device to the `onActivityResult()` method of a caller activity
+Finally, `BlessScanActivity` is a ready to go activity that provides its own `ListAdapter` and returns a selected ble device to the `onActivityResult()` method of a caller activity.
 
 Below you can see UML class diagram that represents the dependencies between these three classes.
 
 ![Bless ui activities UML class diagram](../screens/bless-ui-activities-uml-class-diagramm.svg)
-Additional info for the picture:</br>
-*italic text* - abstract classes, fields, methods</br>
-normal text - normal classes, fields, methods</br>
-<ins>underline text</ins> - static fields, methods </br>
+
+Additional info for the picture:\
+*italic text* - abstract classes, fields, methods\
+normal text - normal classes, fields, methods\
+<ins>underline text</ins> - static fields, methods\
 \# - protected fields and methods
 
-Other part of the bless-ui is the abstract `BleConnectService`, It has basic methods to `connect`, `disconnetc`, `requestMtu`, etc. and abstract callback methods that will be invoked in an instance of this service. Uml class diagram is presented below.
+Other part of the bless-ui is the abstract `BleConnectService`, It has basic methods to `connect`, `disconnect`, `requestMtu`, etc. and abstract callback methods that will be invoked in an instance of this service. Uml class diagram is presented below.
 
 ![Bless ui service UML class diagram](../screens/bless-ui-connect-service-uml-class-diagramm.svg)
-Additional info for the picture:</br>
-*italic text* - abstract classes, fields, methods</br>
-normal text - normal classes, fields, methods</br>
-<ins>underline text</ins> - static fields, methods </br>
+
+Additional info for the picture:\
+*italic text* - abstract classes, fields, methods\
+normal text - normal classes, fields, methods\
+<ins>underline text</ins> - static fields, methods\
 \# - protected fields and methods
 
 Another abstract service is `BleScanService`. We can start and stop scan by running/stopping the service that derives from it.
 Uml class diagram is presented below.
 
 ![Bless ui service UML class diagram](../screens/bless-ui-scan-service-uml-class-diagramm.svg)
+
 Additional info for the picture:</br>
 *italic text* - abstract classes, fields, methods</br>
 normal text - normal classes, fields, methods</br>
@@ -77,7 +80,7 @@ private val requestBluetoothScanning =
 
 The result is defined in the base class `ListScanActivity`:
 - `RESULT_SCANNING_ERROR` is called on scan errors. That can happen when the limit of start-scan requests per time was reached (usually 5 times per 30 seconds since Android 7).
-- When Bluetooth is disabled a dialog is shown. `RESULT_ABORT` is returned when the user denys to enable bluetooth.
+- When Bluetooth is disabled a dialog is shown. `RESULT_ABORT` is returned when the user denies enabling bluetooth.
 - `RESULT_ABORT` is returned when the back- or upbutton was pressed or location permission was permanently denied, too.
 - `RESULT_SUCCESS` is returned when the the user chooses a device. The data has the device address.
 
@@ -86,7 +89,7 @@ You can use your theme by adding the parameter to `startForResult`.
 The theme should have an action bar.
 You can customize scanning by adding `ScanSettings` or a `ScanFilter`
 
-The result looks like that
+The result looks like the image below
 
 ![Bless Scan Activity](../screens/bless-scan.png)
 
@@ -191,25 +194,24 @@ class CustomScanningActivity : ListScanActivity<ScanResult>() {
 }
 ```
 
-The result looks like that
+The result looks like the image below
 
 ![List Scan Activity](../screens/list-scan.png)
 
 With `getListForAdapter(deviceList: List<T>)` you can change the list before it gets passed to the adapter.
 If the whole List should just be forwarded you can return `deviceList`.
-But you can also put your own logic to filter the list by your own needs or even merge it with your own data by mapping it. The generic type will help you to pass your own objects to the adapter.
+But you can also put your own logic to filter the list by your own needs or even merge it with your own data by mapping it. The generic type will help you pass your own objects to the adapter.
 
 ## ScanActivity
 
-If you need even more flexibility you can extend `ScanActivity`.
-`startScan()` will start scanning if all conditions are met.
+If you need even more flexibility you can extend `ScanActivity.startScan()` will start scanning if all conditions are met.
 It will make sure that the bluetooth adapter is enabled and the permissions are granted.
 If the user does finally deny that `handleError(true)` will be called.
 If there is a technical issue `handleError(false)` will be called.
 The scanning state can be observed with `onIsScanningChanged(boolean)`.
 The list of scanned devices is provided in `onNewDevicesList(List<ScanResult>)`.
 The cache of scanned devices can be cleared with `clearScanResults()`.
-`stopScan()` will stop the scanning process.
+Method `stopScan()` will stop the scanning process.
 
 Here is an activity that just counts the scanned devices.
 
@@ -263,7 +265,7 @@ class CounterActivity : ScanActivity() {
 }
 ```
 
-The result looks like that
+The result looks like the image below
 
 ![Counter Activity](../screens/counter-scan.png)
 
@@ -313,9 +315,11 @@ class ScanService : BleScanService() {
         Timber.d("Scan result, result: $result")
     }
 }
+```
+ScanServiceActivity.kt
+```kotlin
+....
 
-ScanServieActivity.kt
-...
 binding.startServiceButton.setOnClickListener {
     Timber.d("Start service button clicked")
     if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
@@ -324,5 +328,6 @@ binding.startServiceButton.setOnClickListener {
         startService(Intent(this, ScanService::class.java))
     }
 }
-...
+
+....
 ```
