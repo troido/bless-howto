@@ -1,4 +1,4 @@
-package de.troido.bless.app
+package com.troido.bless.app
 
 import org.junit.Test
 
