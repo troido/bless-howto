@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">BLEss</string>
+    <string name="app_name">BLEss Samples</string>
     <string name="start_scan_button_text">Start Scan</string>
     <string name="stop_scan_button_text">Stop Scan</string>
     <string name="location_permission_rationale">Location permission needed for Bluetooth scanning</string>
