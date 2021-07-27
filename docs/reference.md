@@ -9,6 +9,7 @@ nav_order: 5
 * [Advertising](./core/advertising.md)
 * [Connection](./core/connection.md)
 * [Scanning](./core/scanning.md)
+§* [Bonding](./core/bonding.md)
 
 ## UI
 * [Activities and service](./ui/bless-ui.md)
