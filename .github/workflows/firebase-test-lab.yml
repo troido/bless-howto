@@ -4,12 +4,9 @@ name: Run UI test on firebase test lab
 
 # Controls when the workflow will run
 on:
-  push:
-    branches:
-      - add-tests
-#  schedule:
-#    # * is a special character in YAML so you have to quote this string
-#    - cron:  '0 0 * * *'
+  schedule:
+    # * is a special character in YAML so you have to quote this string
+    - cron:  '0 0 * * *'
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
