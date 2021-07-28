@@ -2,14 +2,17 @@ package com.troido.bless.app.bonding
 
 import android.Manifest
 import android.annotation.SuppressLint
+import android.bluetooth.BluetoothAdapter
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.troido.bless.Bless
 import com.troido.bless.BluetoothDevice
 import com.troido.bless.app.R
+import com.troido.bless.app.bonding.exception.BluetoothNotEnabledException
 import com.troido.bless.app.common.extensions.showLongToast
 import com.troido.bless.app.common.extensions.showToast
 import com.troido.bless.app.databinding.ActivityBondingBinding
@@ -43,13 +46,29 @@ class BondingActivity : PermissionsActivity(
 
     private lateinit var binding: ActivityBondingBinding
 
+    private val requestBluetooth =
+        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+            if (result.resultCode == RESULT_OK) {
+                showToast(getString(R.string.bluetooth_enabled))
+                binding.scanButton.performClick()
+            } else showToast(getString(R.string.bluetooth_disabled))
+        }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityBondingBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         viewModel.errorLiveData.observe(this) {
-            it.message?.let(::showLongToast)
+            if (it.cause is BluetoothNotEnabledException) {
+                requestBluetooth.launch(Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE))
+            } else it.message?.let(::showLongToast)
+        }
+
+        viewModel.deviceLiveData.observe(this) {
+            deviceList.add(it)
+            (binding.deviceListRecyclerView.adapter as BondingRecyclerViewAdapter)
+                .addDevices(*deviceList.toTypedArray())
         }
 
         setUpRecycler()
@@ -67,12 +86,9 @@ class BondingActivity : PermissionsActivity(
     @SuppressLint("MissingPermission")
     private fun startScanning() {
         if (binding.scanButton.text == getString(R.string.scan_button_text)) {
-            viewModel.startScanning().observe(this) {
-                deviceList.add(it)
-                (binding.deviceListRecyclerView.adapter as BondingRecyclerViewAdapter)
-                    .addDevices(*deviceList.toTypedArray())
+            if (viewModel.startScanning()) {
+                binding.scanButton.text = getString(R.string.stop_scan_button_text)
             }
-            binding.scanButton.text = getString(R.string.stop_scan_button_text)
         } else {
             viewModel.stopScanning()
             binding.scanButton.text = getString(R.string.scan_button_text)
@@ -87,7 +103,6 @@ class BondingActivity : PermissionsActivity(
                     UUID.fromString("a9aa6c01-23e8-4cde-8386-e2eefa83f0d7"),
                     "Bond".toByteArray()
                 )
-
                 showLongToast("Sending \"Bond\" to device as Byte Array")
 
                 Bless.deviceBonder.removeBondedDevice(bluetoothDevice.address)

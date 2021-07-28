@@ -7,6 +7,7 @@ import com.troido.bless.comm.scan.deserialization.*
 import com.troido.bless.app.bonding.BondingViewModel
 import com.troido.bless.app.common.ViewMvpFactory
 import com.troido.bless.app.deserialization.DeserializationViewModel
+import com.troido.bless.app.model.implementation.BluetoothInfoWithBluetoothAdapter
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.core.qualifier.named
 import org.koin.dsl.module
@@ -43,5 +44,5 @@ val appModule = module {
         )
     }
 
-    viewModel { BondingViewModel() }
+    viewModel { BondingViewModel(BluetoothInfoWithBluetoothAdapter()) }
 }

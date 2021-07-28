@@ -41,4 +41,6 @@
     <string name="filter_by_device">Filter by device</string>
     <string name="invalid_mac_address">Invalid mac address</string>
     <string name="delete">Delete</string>
+    <string name="bluetooth_enabled">Bluetooth enabled</string>
+    <string name="bluetooth_disabled">Bluetooth disabled</string>
 </resources>
