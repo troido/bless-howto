@@ -6,7 +6,7 @@ name: Run UI test on firebase test lab
 on:
   push:
     branches:
-      - add-actions
+      - add-tests
 #  schedule:
 #    # * is a special character in YAML so you have to quote this string
 #    - cron:  '0 0 * * *'
