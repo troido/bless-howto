@@ -1,6 +1,5 @@
 package com.troido.bless.app.bonding
 
-import android.Manifest
 import android.annotation.SuppressLint
 import android.bluetooth.BluetoothAdapter
 import android.content.Context
@@ -18,11 +17,12 @@ import com.troido.bless.app.common.extensions.showToast
 import com.troido.bless.app.databinding.ActivityBondingBinding
 import com.troido.bless.app.main.PermissionsActivity
 import com.troido.bless.bonding.BondingResultCallback
+import com.troido.bless.ui.util.Permissions
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import java.util.UUID
 
 class BondingActivity : PermissionsActivity(
-    arrayOf(Manifest.permission.ACCESS_FINE_LOCATION),
+    Permissions.getBluetoothPermissions(),
     R.string.location_permission_rationale
 ) {
 
