@@ -14,7 +14,6 @@ import com.troido.bless.app.R
 import com.troido.bless.ui.scan.view.DeniedRationaleDialogBuilder
 import timber.log.Timber
 
-
 /**
  * Activity that handles permissions. Permissions can be pass to the constructor or directly to the
  * [runWithPermissions] function. If permissions is not passt to the function then permissions from
@@ -57,13 +56,11 @@ abstract class PermissionsActivity(
             .setPositiveButton(getString(com.troido.bless.ui.R.string.ok)) { _, _ ->
                 requestPermission.launch(permissions)
             }
-            .setNegativeButton(getString(com.troido.bless.ui.R.string.cancel))
-            { dialog, _ ->
+            .setNegativeButton(getString(com.troido.bless.ui.R.string.cancel)) { dialog, _ ->
                 dialog.dismiss()
             }
             .setCancelable(true)
             .create()
-
 
         rationaleDeniedPermissionsDialog = DeniedRationaleDialogBuilder.createDefault(
             this,

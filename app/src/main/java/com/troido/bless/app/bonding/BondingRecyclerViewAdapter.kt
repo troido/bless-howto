@@ -8,8 +8,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.troido.bless.BluetoothDevice
 import com.troido.bless.app.R
 
-class BondingRecyclerViewAdapter(private val devices: MutableList<BluetoothDevice>, val onItemClicked: (BluetoothDevice) -> Unit)
-    : RecyclerView.Adapter<BondingRecyclerViewAdapter.BondingViewHolder>() {
+class BondingRecyclerViewAdapter(private val devices: MutableList<BluetoothDevice>, val onItemClicked: (BluetoothDevice) -> Unit) :
+    RecyclerView.Adapter<BondingRecyclerViewAdapter.BondingViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BondingViewHolder {
         return BondingViewHolder(parent)
@@ -23,7 +23,7 @@ class BondingRecyclerViewAdapter(private val devices: MutableList<BluetoothDevic
     override fun getItemCount() = devices.size
 
     fun addDevices(vararg devices: BluetoothDevice) {
-        val callback = object: DiffUtil.Callback() {
+        val callback = object : DiffUtil.Callback() {
             val oldDevices = this@BondingRecyclerViewAdapter.devices
 
             override fun getOldListSize() = oldDevices.size
@@ -46,10 +46,12 @@ class BondingRecyclerViewAdapter(private val devices: MutableList<BluetoothDevic
         result.dispatchUpdatesTo(this)
     }
 
-    inner class BondingViewHolder(parent: ViewGroup)
-        : RecyclerView.ViewHolder(LayoutInflater
-            .from(parent.context)
-            .inflate(R.layout.item_device, parent, false)) {
+    inner class BondingViewHolder(parent: ViewGroup) :
+        RecyclerView.ViewHolder(
+            LayoutInflater
+                .from(parent.context)
+                .inflate(R.layout.item_device, parent, false)
+        ) {
 
         fun bind(device: BluetoothDevice, callback: (BluetoothDevice) -> Unit) {
             itemView.findViewById<TextView>(R.id.device_name_text_view)

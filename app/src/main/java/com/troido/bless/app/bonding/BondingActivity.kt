@@ -19,7 +19,7 @@ import com.troido.bless.app.databinding.ActivityBondingBinding
 import com.troido.bless.app.main.PermissionsActivity
 import com.troido.bless.bonding.BondingResultCallback
 import org.koin.androidx.viewmodel.ext.android.viewModel
-import java.util.*
+import java.util.UUID
 
 class BondingActivity : PermissionsActivity(
     arrayOf(Manifest.permission.ACCESS_FINE_LOCATION),

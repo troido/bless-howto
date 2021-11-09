@@ -8,9 +8,8 @@ import org.junit.Before
  * Base test class that enables bluetooth before any of the test methods will be executed
  */
 abstract class EnabledBluetoothTestCase {
-    companion object{
+    companion object {
         private var testClass: Class<out EnabledBluetoothTestCase?>? = null
-
     }
 
     @Before
@@ -18,7 +17,7 @@ abstract class EnabledBluetoothTestCase {
         println("Before in base test class")
 
         if (this.javaClass.equals(testClass)) {
-            return;
+            return
         }
 
         val bluetoothStateChanger =

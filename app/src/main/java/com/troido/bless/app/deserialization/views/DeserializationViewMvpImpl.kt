@@ -4,9 +4,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
-import android.widget.Button
-import android.widget.Spinner
-import android.widget.TextView
 import androidx.recyclerview.widget.DividerItemDecoration
 import com.troido.bless.app.common.views.BaseObservableViewMvp
 import com.troido.bless.app.databinding.LayoutDeserializationBinding

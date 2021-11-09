@@ -80,12 +80,14 @@ class ScanStarterActivity : AppCompatActivity(R.layout.activity_device_scan_star
     }
 
     private fun showFilterDialog() {
-        FilterDialogFragment.newInstance().show(supportFragmentManager,
+        FilterDialogFragment.newInstance().show(
+            supportFragmentManager,
             object : SaveScanConfigCallback {
                 override fun onSaveScanConfig(scanConfig: ScanConfig) {
                     startScanWithScanConfiguration(scanConfig)
                 }
-            })
+            }
+        )
     }
 
     private fun startScanWithScanConfiguration(scanConfig: ScanConfig) {

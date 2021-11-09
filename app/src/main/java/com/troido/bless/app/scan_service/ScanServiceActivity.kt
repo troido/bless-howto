@@ -23,8 +23,8 @@ class ScanServiceActivity : PermissionsActivity(
 
         binding.startServiceButton.setOnClickListener {
             Timber.d("Start service button clicked")
-            val foreground = ActivityCompat.checkSelfPermission(this,Manifest.permission.FOREGROUND_SERVICE)
-            val admin = ActivityCompat.checkSelfPermission(this,Manifest.permission.BLUETOOTH_ADMIN)
+            val foreground = ActivityCompat.checkSelfPermission(this, Manifest.permission.FOREGROUND_SERVICE)
+            val admin = ActivityCompat.checkSelfPermission(this, Manifest.permission.BLUETOOTH_ADMIN)
             Timber.d("Answer for foreground is $foreground. for admin is $admin")
             runWithPermissions {
                 if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {

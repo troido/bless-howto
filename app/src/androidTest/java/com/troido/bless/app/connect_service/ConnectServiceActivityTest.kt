@@ -16,7 +16,7 @@ import org.junit.runner.RunWith
 
 @RunWith(AndroidJUnit4::class)
 @RequiresDevice
-class ConnectServiceActivityTest{
+class ConnectServiceActivityTest {
     @get:Rule
     var activityRule: ActivityScenarioRule<ConnectServiceActivity> =
         ActivityScenarioRule(ConnectServiceActivity::class.java)

@@ -34,7 +34,6 @@ class FilterDialogFragmentTest {
         } catch (e: BaristaException) {
             Thread.sleep(5000)
             assertListItemCount(R.id.filter_by_mac_address_list_view, 0)
-
         }
     }
 

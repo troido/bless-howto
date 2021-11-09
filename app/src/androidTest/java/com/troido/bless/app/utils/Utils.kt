@@ -5,7 +5,6 @@ import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.uiautomator.UiDevice
 import androidx.test.uiautomator.UiSelector
 
-
 fun enableTurnOnBluetoothSystemDialogIfAppears() {
     if (!BluetoothAdapter.getDefaultAdapter().isEnabled) {
         val device = UiDevice.getInstance(InstrumentationRegistry.getInstrumentation())

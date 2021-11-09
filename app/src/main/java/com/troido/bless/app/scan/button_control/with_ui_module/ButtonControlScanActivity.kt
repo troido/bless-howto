@@ -14,7 +14,6 @@ import com.troido.bless.ui.scan.ScanActivity
 import org.koin.android.ext.android.inject
 import org.koin.core.parameter.parametersOf
 
-
 class ButtonControlScanActivity : ScanActivity(), DeviceScanViewMvp.Listener {
 
     private val viewMvpFactory: ViewMvpFactory by inject { parametersOf(LayoutInflater.from(this)) }
@@ -37,9 +36,11 @@ class ButtonControlScanActivity : ScanActivity(), DeviceScanViewMvp.Listener {
     }
 
     override fun onNewDevicesList(newDevicesList: List<ScanResult>) {
-        viewMvp.bindDevices(newDevicesList.map {
-            Device(it.device.name ?: "Unknown", it.device.address)
-        })
+        viewMvp.bindDevices(
+            newDevicesList.map {
+                Device(it.device.name ?: "Unknown", it.device.address)
+            }
+        )
     }
 
     override fun handleError(isUserDecision: Boolean) {
@@ -62,7 +63,6 @@ class ButtonControlScanActivity : ScanActivity(), DeviceScanViewMvp.Listener {
         setResult(RESULT_OK, data)
         finish()
     }
-
 
     override fun onDestroy() {
         super.onDestroy()

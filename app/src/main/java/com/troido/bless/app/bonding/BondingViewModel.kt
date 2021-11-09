@@ -73,12 +73,14 @@ class BondingViewModel(private val bluetoothInfo: BluetoothInfo) : ViewModel() {
         onConnected: (List<GattService>, BleConnection) -> Unit
     ): BleConnection {
         val connection = Bless.createBleConnection(bluetoothDevice.address)
-        connection.registerListener(BleConnectionListener(
-            bluetoothDevice.address,
-            _errorLiveData
-        ) {
-            onConnected(it, connection)
-        })
+        connection.registerListener(
+            BleConnectionListener(
+                bluetoothDevice.address,
+                _errorLiveData
+            ) {
+                onConnected(it, connection)
+            }
+        )
         connection.connect()
         return connection
     }

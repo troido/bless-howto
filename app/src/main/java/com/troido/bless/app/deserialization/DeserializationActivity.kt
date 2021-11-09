@@ -15,10 +15,12 @@ import com.troido.bless.app.main.PermissionsActivity
 import com.troido.bless.app.model.Device
 import org.koin.android.ext.android.inject
 
-class DeserializationActivity : PermissionsActivity(
-    arrayOf(Manifest.permission.ACCESS_FINE_LOCATION),
-    R.string.location_permission_rationale
-), DeserializationViewMvp.Listener {
+class DeserializationActivity :
+    PermissionsActivity(
+        arrayOf(Manifest.permission.ACCESS_FINE_LOCATION),
+        R.string.location_permission_rationale
+    ),
+    DeserializationViewMvp.Listener {
 
     private lateinit var viewMvp: DeserializationViewMvp
 
