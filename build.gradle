@@ -3,7 +3,7 @@ buildscript {
     ext {
         kotlin_version = "1.5.0"
         coreKtx_version = "1.3.2"
-        appComat_version = "1.3.0-rc01"
+        appCompat_version = "1.3.0-rc01"
         constraintLayout_version = "2.0.4"
         recyclerView_version = "1.2.0"
         material_version = "1.3.0"
@@ -11,7 +11,7 @@ buildscript {
         timber_version = "4.7.1"
         koin_version = "2.1.6"
         junit_version = "4.13.2"
-        bless_version = "0.9.0-SNAPSHOT"
+        bless_version = "0.9.1"
         xcoreVersion = "1.4.0"
         extJUnitVersion = "1.1.3"
         runnerVersion = "1.4.0"
@@ -47,9 +47,8 @@ allprojects {
     repositories {
         google()
         mavenCentral()
-        jcenter() // Warning: this repository is going to shut down soon
         maven {
-            url = "https://troido.jfrog.io/artifactory/bless-libs-snapshot/"
+            url = "https://troido.jfrog.io/artifactory/bless-libs-release"
         }
     }
 }
