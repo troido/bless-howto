@@ -105,7 +105,6 @@ class FilterDialogFragment : DialogFragment() {
         }
     }
 
-
     private fun getSelectedScanMode(): String {
         val radioGroup = rootViewBinding.scanModeOptionsRadioGroup
         val selectedRadioButtonId = radioGroup.checkedRadioButtonId

@@ -20,8 +20,8 @@ class MacAddressFormatTextWatcher(
         private set
 
     init {
-            targetEditText.addTextChangedListener(this)
-            isRemovedFromTarget = false
+        targetEditText.addTextChangedListener(this)
+        isRemovedFromTarget = false
     }
 
     override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
@@ -68,7 +68,7 @@ class MacAddressFormatTextWatcher(
 
     companion object {
 
-        fun attach(targetEditText: EditText) : MacAddressFormatTextWatcher {
+        fun attach(targetEditText: EditText): MacAddressFormatTextWatcher {
             return MacAddressFormatTextWatcher(targetEditText)
         }
 
@@ -82,7 +82,7 @@ class MacAddressFormatTextWatcher(
             val stringWithColons = mac.chunked(2)
                 .map { chunk -> "$chunk:" }
                 .take(6)
-                .fold("") { item, accumulator ->  item + accumulator }
+                .fold("") { item, accumulator -> item + accumulator }
 
             return if (stringWithColons.endsWith(":"))
                 stringWithColons.substring(0, (stringWithColons.length - 1))

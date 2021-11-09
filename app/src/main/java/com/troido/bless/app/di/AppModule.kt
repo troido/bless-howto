@@ -3,10 +3,15 @@ package com.troido.bless.app.di
 import android.bluetooth.BluetoothAdapter
 import android.view.LayoutInflater
 import com.troido.bless.Bless
-import com.troido.bless.comm.scan.deserialization.*
 import com.troido.bless.app.bonding.BondingViewModel
 import com.troido.bless.app.common.ViewMvpFactory
 import com.troido.bless.app.deserialization.DeserializationViewModel
+import com.troido.bless.app.model.implementation.BluetoothInfoWithBluetoothAdapter
+import com.troido.bless.comm.scan.deserialization.BlessCommDeserializer
+import com.troido.bless.comm.scan.deserialization.CommFormat
+import com.troido.bless.comm.scan.deserialization.DataFormat
+import com.troido.bless.comm.scan.deserialization.DataType
+import com.troido.bless.comm.scan.deserialization.RequiredByte
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.core.qualifier.named
 import org.koin.dsl.module
@@ -19,7 +24,7 @@ val appModule = module {
 
     single { BluetoothAdapter.getDefaultAdapter() }
 
-    viewModel { DeserializationViewModel(get(), get()) }
+    viewModel { DeserializationViewModel(get(), get(), BluetoothInfoWithBluetoothAdapter()) }
 
     single { BlessCommDeserializer(get(named("formats"))) }
 
@@ -43,5 +48,5 @@ val appModule = module {
         )
     }
 
-    viewModel { BondingViewModel() }
+    viewModel { BondingViewModel(BluetoothInfoWithBluetoothAdapter()) }
 }

@@ -1,9 +1,9 @@
 package com.troido.bless.app.connect_service
 
 import android.os.Bundle
-import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
+import com.troido.bless.app.common.extensions.showToast
 import com.troido.bless.app.databinding.LayoutConnectServiceBinding
 import com.troido.bless.ui.scan.bless.BlessScanActivity
 import timber.log.Timber
@@ -21,7 +21,7 @@ class ConnectServiceActivity : AppCompatActivity() {
                 } else {
                     val message = "Failed to retrieve Bluetooth address from scan module"
                     Timber.e(message)
-                    Toast.makeText(this, message, Toast.LENGTH_LONG).show()
+                    showToast(message)
                 }
             }
         }

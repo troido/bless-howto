@@ -15,7 +15,6 @@ class DeviceSpinnerViewMvpImpl(
 
     override val rootView: View = binding.root
 
-
     override fun bindDevice(device: Device) {
         binding.deviceNameTextView.text = device.name
         binding.deviceAddressTextView.text = device.address

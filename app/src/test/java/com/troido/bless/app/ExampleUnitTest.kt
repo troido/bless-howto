@@ -1,8 +1,7 @@
-package de.troido.bless.app
+package com.troido.bless.app
 
+import org.junit.Assert.assertEquals
 import org.junit.Test
-
-import org.junit.Assert.*
 
 /**
  * Example local unit test, which will execute on the development machine (host).

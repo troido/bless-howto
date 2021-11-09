@@ -3,8 +3,8 @@ package com.troido.bless.app.scan.button_control.with_ui_module
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
-import android.widget.Toast
 import com.troido.bless.app.common.ViewMvpFactory
+import com.troido.bless.app.common.extensions.showLongToast
 import com.troido.bless.app.model.Device
 import com.troido.bless.app.scan.button_control.views.DeviceScanViewMvp
 import com.troido.bless.scan.ScanFilter
@@ -13,7 +13,6 @@ import com.troido.bless.scan.ScanSettings
 import com.troido.bless.ui.scan.ScanActivity
 import org.koin.android.ext.android.inject
 import org.koin.core.parameter.parametersOf
-
 
 class ButtonControlScanActivity : ScanActivity(), DeviceScanViewMvp.Listener {
 
@@ -37,13 +36,15 @@ class ButtonControlScanActivity : ScanActivity(), DeviceScanViewMvp.Listener {
     }
 
     override fun onNewDevicesList(newDevicesList: List<ScanResult>) {
-        viewMvp.bindDevices(newDevicesList.map {
-            Device(it.device.name ?: "Unknown", it.device.address)
-        })
+        viewMvp.bindDevices(
+            newDevicesList.map {
+                Device(it.device.name ?: "Unknown", it.device.address)
+            }
+        )
     }
 
     override fun handleError(isUserDecision: Boolean) {
-        Toast.makeText(this, "Error", Toast.LENGTH_LONG).show()
+        showLongToast("Error")
     }
 
     override fun onStartScanClicked() {
@@ -62,7 +63,6 @@ class ButtonControlScanActivity : ScanActivity(), DeviceScanViewMvp.Listener {
         setResult(RESULT_OK, data)
         finish()
     }
-
 
     override fun onDestroy() {
         super.onDestroy()

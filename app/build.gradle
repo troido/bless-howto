@@ -1,20 +1,25 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id 'org.jlleitschuh.gradle.ktlint'
 }
 
 android {
-    compileSdkVersion 30
+    compileSdkVersion 31
     buildToolsVersion "30.0.3"
 
     defaultConfig {
-        applicationId "de.troido.bless.app.public"
+        applicationId "de.troido.bless.app.sample"
         minSdkVersion 21
-        targetSdkVersion 30
+        targetSdkVersion 31
         versionCode 1
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    testOptions {
+        execution = "ANDROIDX_TEST_ORCHESTRATOR"
     }
 
     buildTypes {
@@ -59,5 +64,31 @@ dependencies {
     implementation "org.koin:koin-core:$koin_version"
     implementation "org.koin:koin-androidx-viewmodel:$koin_version"
 
-    testImplementation "junit:junit:$junit_version"
+    // Testing-only dependencies
+    androidTestImplementation "androidx.test:core:$xcoreVersion"
+    androidTestImplementation "androidx.test.ext:junit:$extJUnitVersion"
+    androidTestImplementation "androidx.test:runner:$runnerVersion"
+    androidTestUtil "androidx.test:orchestrator:$orchestratorVersion"
+    androidTestImplementation "androidx.test:rules:$rulesVersion"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$espressoVersion"
+    androidTestImplementation "androidx.test.espresso:espresso-intents:$espressoVersion"
+    androidTestImplementation "androidx.test.ext:truth:$extTruthVersion"
+    androidTestImplementation "androidx.test.ext:junit:$extJUnitVersion"
+    androidTestImplementation "org.robolectric:annotations:$robolectric_version"
+    androidTestImplementation "androidx.test.uiautomator:uiautomator:$uiAutomator"
+    androidTestImplementation('com.schibsted.spain:barista:3.9.0') {
+        exclude group: 'org.jetbrains.kotlin' // Only if you already use Kotlin in your project
+    }
+
+    // Below dependencies should be debug due to their architecture
+    debugImplementation "androidx.fragment:fragment-testing:$fragment_version"
+    debugImplementation "androidx.test:core:$xcoreVersion"
+
+    testImplementation "androidx.test:core:$xcoreVersion"
+    testImplementation "androidx.test.ext:junit:$extJUnitVersion"
+    testImplementation "androidx.test.espresso:espresso-core:$espressoVersion"
+    testImplementation "androidx.test.espresso:espresso-intents:$espressoVersion"
+    testImplementation "androidx.test.ext:truth:$extTruthVersion"
+    testImplementation "androidx.test.ext:junit:$extJUnitVersion"
+    testImplementation "org.robolectric:robolectric:$robolectric_version"
 }
