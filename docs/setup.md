@@ -7,7 +7,7 @@ nav_order: 4
 
 ## Current Version
 ```gradle
-def bless_version = '0.9.0'
+def bless_version = '0.9.1'
 ```
 
 ## Gradle
