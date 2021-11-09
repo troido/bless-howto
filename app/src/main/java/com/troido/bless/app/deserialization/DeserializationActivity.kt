@@ -1,6 +1,5 @@
 package com.troido.bless.app.deserialization
 
-import android.Manifest
 import android.annotation.SuppressLint
 import android.bluetooth.BluetoothAdapter
 import android.content.Intent
@@ -13,11 +12,12 @@ import com.troido.bless.app.deserialization.views.DeserializationViewMvp
 import com.troido.bless.app.deserialization.views.DeserializationViewMvpImpl
 import com.troido.bless.app.main.PermissionsActivity
 import com.troido.bless.app.model.Device
+import com.troido.bless.ui.util.Permissions
 import org.koin.android.ext.android.inject
 
 class DeserializationActivity :
     PermissionsActivity(
-        arrayOf(Manifest.permission.ACCESS_FINE_LOCATION),
+        Permissions.getBluetoothPermissions(),
         R.string.location_permission_rationale
     ),
     DeserializationViewMvp.Listener {
