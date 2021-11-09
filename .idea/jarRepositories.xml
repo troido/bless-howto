@@ -31,5 +31,10 @@
       <option name="name" value="maven" />
       <option name="url" value="https://troido.jfrog.io/artifactory/bless-libs-snapshot/" />
     </remote-repository>
+    <remote-repository>
+      <option name="id" value="maven" />
+      <option name="name" value="maven" />
+      <option name="url" value="https://troido.jfrog.io/artifactory/bless-libs-release" />
+    </remote-repository>
   </component>
 </project>
