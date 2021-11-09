@@ -1,11 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.troido.bless.app">
 
-    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
-
-    <meta-data
-        android:name="bless_license"
-        android:value="" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
 
     <application
         android:name=".SampleApplication"
@@ -16,7 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppThemeWithoutActionBar">
 
-        <activity android:name=".main.MainActivity">
+        <activity
+            android:name=".main.MainActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -53,6 +51,10 @@
         <service
             android:name=".connect_service.CustomBleConnectService"
             android:exported="false" />
+
+        <meta-data
+            android:name="bless_license"
+            android:value="" />
 
     </application>
 
