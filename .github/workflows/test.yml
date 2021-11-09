@@ -12,10 +12,10 @@ jobs:
       uses: actions/setup-java@v1
       with:
         java-version: 1.8
-    - name: Run build (includes tests and lint)
-      run: ./gradlew build
     - name: Find snapshot versions
       run: |
-            chmod +x ./scripts/find_snapshot.sh
-            ./scripts/find_snapshot.sh
+        chmod +x ./scripts/find_snapshot.sh
+        ./scripts/find_snapshot.sh
       shell: bash
+    - name: Run build (includes tests and lint)
+      run: ./gradlew build
